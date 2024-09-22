@@ -16,13 +16,4 @@ class LoginForm extends Form
     public string $password = '';
 
     public bool $remember = false;
-
-    public function authenticate(): void
-    {
-        $this->validate();
-
-        if (!Auth::attempt($this->only(['email', 'password']), $this->remember)) {
-            $this->addError('email', 'Credentials did not match our records.');
-        }
-    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Auth;
+namespace App\Livewire\Pages\Auth;
 
 use App\Livewire\Forms\RegistrationForm;
 use Livewire\Attributes\Layout;

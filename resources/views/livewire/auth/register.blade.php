@@ -1,5 +1,33 @@
 <x-authentication-card wire:submit="attempt">
     <div>
+        <x-form.label for="firstname">
+            First Name
+        </x-form.label>
+
+        <x-form.input
+            type="text"
+            id="firstname"
+            wire:model="form.first_name"
+        />
+
+        <x-form.error for="form.first_name" />
+    </div>
+
+    <div>
+        <x-form.label for="lastname">
+            Last Name
+        </x-form.label>
+
+        <x-form.input
+            type="text"
+            id="lastname"
+            wire:model="form.last_name"
+        />
+
+        <x-form.error for="form.last_name" />
+    </div>
+
+    <div>
         <x-form.label for="email">
             Email Address
         </x-form.label>
@@ -26,19 +54,11 @@
         <x-form.error for="form.password" />
     </div>
 
-    <div class="mt-2 flex items-center justify-between">
-        <x-form.checkbox
-            label="Remember me?"
-            wire:model="form.remember"
-        />
-
-        <x-link>Forgot password?</x-link>
-    </div>
-
     <x-button variant="primary" class="w-full mt-4">
-        Log In
+        Register
+
         <x-spinner wire:loading wire:target="attempt" />
     </x-button>
 
-    <p class="text-sm text-center">Don't have an account?<x-link href="{{ route('register') }}" wire:navigate>Register</x-link></p>
+    <p class="text-sm text-center">Alreay have an account?<x-link href="{{ route('login') }}" wire:navigate>Log in</x-link></p>
 </x-authentication-card>

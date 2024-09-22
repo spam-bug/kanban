@@ -2,7 +2,7 @@
 
 
 @php
-    $baseClass = 'px-4 py-2 flex items-center justify-center font-medium rounded-lg ';
+    $baseClass = 'px-4 py-2 flex items-center justify-center gap-2 font-medium rounded-lg ';
 
     $variantClass = match ($variant) {
         'primary' => 'text-black bg-yellow-400 ',

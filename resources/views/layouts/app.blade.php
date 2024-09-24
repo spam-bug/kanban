@@ -121,11 +121,7 @@
                 <p class="text-xs font-medium text-gray-500">{{ auth()->user()->defaultWorkspace()->name }}</p>
             </div>
 
-            <div class="p-2">
-                <x-button variant="outline" class="w-full">
-                    Add board
-                </x-button>
-            </div>
+            <livewire:board-list />
         </div>
     </nav>
 
@@ -135,5 +131,7 @@
     >
         {{ $slot }}
     </main>
+
+    <livewire:dialog />
 </body>
 </html>

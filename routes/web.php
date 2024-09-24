@@ -2,6 +2,7 @@
 
 use App\Livewire\Pages\Auth\Login;
 use App\Livewire\Pages\Auth\Register;
+use App\Livewire\Pages\Board;
 use App\Livewire\Pages\Workspace;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -17,6 +18,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/workspace/{workspace}', Workspace::class)->name('workspace');
+    Route::get('/workspace/{workspace}/board/{board}', Board::class)->name('board');
 });
 
 Route::get('flush', function () {

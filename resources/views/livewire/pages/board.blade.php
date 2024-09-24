@@ -1,0 +1,3 @@
+<div>
+    {{ $board->name }}
+</div>

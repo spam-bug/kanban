@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class BoardList extends Component
 {
-    #[On('boardAdded')]
+    #[On('boardAdded'), On('workspaceCreated')]
     public function render()
     {
         return view('livewire.components.board-list', [

@@ -73,13 +73,13 @@
                 x-show="expanded"
                 x-collapse.duration.300ms
             >
-                <div class="flex gap-2 p-2 border-b">
-                    <x-button variant="outline" class="w-full">
+                <div class="grid gap-2 p-2 border-b">
+                    <x-button variant="outline">
                         <x-icon.settings />
                         Settings
                     </x-button>
 
-                    <x-button variant="outline" class="w-full">
+                    <x-button variant="outline">
                         <x-icon.group-add />
                         Invite members
                     </x-button>
@@ -87,25 +87,10 @@
 
 
                 <div>
-                    <p class="text-xs text-gray-500 ml-2 mt-1">Switch workspace</p>
-
-                    <div class="space-y-1 py-1">
-                        @foreach (auth()->user()->workspaces as $workspace)
-                            <button class="w-full rounded flex items-center justify-between px-4 py-1 text-sm hover:bg-gray-100 focus:bg-gray-100">
-                                {{ $workspace->name }}
-
-                                @if ($workspace->default)
-                                    <x-icon.check />
-                                @endif
-                            </button>
-                        @endforeach
-                    </div>
+                    <livewire:workspace-switcher />
 
                     <div class="border-t py-1 space-y-1">
-                        <button class="w-full rounded flex items-center px-4 py-1 text-sm hover:bg-gray-100 focus:bg-gray-100">
-                            <x-icon.add />
-                            Create workspace
-                        </button>
+                        <livewire:create-workspace-button />
 
                         <button class="w-full rounded flex items-center px-4 py-1 text-sm hover:bg-gray-100 focus:bg-gray-100">
                             <x-icon.logout />
@@ -116,13 +101,7 @@
             </div>
         </div>
 
-        <div>
-            <div class="flex items-center justify-between px-2 py-1">
-                <p class="text-xs font-medium text-gray-500">{{ auth()->user()->defaultWorkspace()->name }}</p>
-            </div>
-
-            <livewire:board-list />
-        </div>
+        <livewire:board-list />
     </nav>
 
     <main

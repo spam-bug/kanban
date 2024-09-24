@@ -35,8 +35,6 @@
 
             Livewire.on('dialog:close', () => {
                 this.state.show = false;
-                this.state.component = '';
-                this.state.arguments = {};
             });
         }
     }"

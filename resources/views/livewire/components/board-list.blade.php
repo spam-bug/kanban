@@ -1,4 +1,8 @@
 <div>
+    <div class="flex items-center justify-between px-2 py-1">
+        <p class="text-xs font-medium text-gray-500">{{ auth()->user()->defaultWorkspace()->name }}</p>
+    </div>
+
     @if ($boards->isNotEmpty())
         <div class="p-2 space-y-1">
             @foreach ($boards as $board)

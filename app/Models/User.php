@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Workspace;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -35,5 +37,23 @@ class User extends Authenticatable
     public function workspaces(): HasMany
     {
         return $this->hasMany(Workspace::class);
+    }
+
+    public function defaultWorkspace()
+    {
+        return $this->workspaces()->default()->first();
+    }
+
+    public function photo()
+    {
+        return 'https://api.dicebear.com/9.x/initials/svg?seed=' . $this->name();
+    }
+
+    public function name()
+    {
+        return implode(" ", [
+            ucfirst($this->first_name),
+            ucfirst($this->last_name),
+        ]);
     }
 }
